@@ -1,16 +1,9 @@
 package lotto.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Lotto {
-    private List<Integer> numbers;
-
-    public Lotto() {
-    }
+    private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -26,7 +19,7 @@ public class Lotto {
     // TODO: 추가 기능 구현
 
 
-
-
-
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }
