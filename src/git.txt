@@ -2,8 +2,9 @@ git init
 git remote add origin https://github.com/jngbnss/preCoursePractice.git
 
 git status
+
 git add .
-git commit -m "docs: 기능 요구사항 정리"
+git commit -m "feat: 입력값 받기"
 git push origin jngbnss
 
 git pull origin main
