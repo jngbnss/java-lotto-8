@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "feat: 당첨번호 및 보너스 번호 입력 구현"
+git commit -m "refactor: 로또 번호 및 보너스 번호 저장"
 git push origin jngbnss
 
 git pull origin main
