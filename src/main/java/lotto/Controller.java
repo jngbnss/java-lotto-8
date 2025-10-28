@@ -11,6 +11,8 @@ public class Controller {
         getPrice();
         giveTickets(ticket);
         makeNumbers(ticket);
+        answerNumber();
+        bonusNumber();
     }
 
     public void getPrice(){
@@ -35,5 +37,18 @@ public class Controller {
         for (int i = 0; i < ticket; i++) {
             view.showNumber(lotto.makeNumbers());
         }
+    }
+
+    public void answerNumber(){
+        view.showInputAnswerNumberMessage();
+        String input = Console.readLine();
+        lotto.makeAnswers(input);
+    }
+
+    public void bonusNumber(){
+        view.showInputBonusNumberMessage();
+        String input = Console.readLine();
+        lotto.makeBonusnumber(input);
+
     }
 }
