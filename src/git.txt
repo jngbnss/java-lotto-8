@@ -1,0 +1,24 @@
+git init
+git remote add origin https://github.com/jngbnss/preCoursePractice.git
+
+git status
+git add .
+git commit -m "docs: 기능 요구사항 정리"
+git push origin jngbnss
+
+git pull origin main
+
+git add .
+git commit -m "save"
+git push
+
+
+
+타입	의미
+feat	새로운 기능 추가
+fix	버그 수정
+docs	문서 변경
+style	코드 포맷, 세미콜론 등 (로직 변화 없음)
+refactor	리팩토링 (기능 변화 없이 구조 개선)
+test	테스트 추가/보완
+chore	유지보수, 빌드, 설정 등 기타 변경
