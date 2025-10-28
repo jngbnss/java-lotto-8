@@ -2,12 +2,14 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.domain.Lotto;
+import lotto.domain.LottoGenerator;
 import lotto.domain.LottoResult;
 
 public class Controller {
     private int ticket = 0;
     View view = new View();
     Lotto lotto = new Lotto();
+    LottoGenerator lottoGenerator = new LottoGenerator();
     LottoResult lottoResult = new LottoResult();
 
     public void run() {
@@ -39,7 +41,7 @@ public class Controller {
 
     public void makeNumbers(int ticket) {
         for (int i = 0; i < ticket; i++) {
-            view.showNumber(lotto.makeNumbers());
+            view.showNumber(lottoGenerator.makeNumbers());
         }
     }
 

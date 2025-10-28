@@ -24,15 +24,7 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
-    public String makeNumbers(){
-        List<Integer> integers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
-        integers.sort(Comparator.naturalOrder());
-        // 리스트를 문자열로 변환하고 ,로 연결
-        String randomNumbers = integers.stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining(", "));
-        return randomNumbers;
-    }
+
 
 
 
