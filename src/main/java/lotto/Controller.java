@@ -5,10 +5,12 @@ import camp.nextstep.edu.missionutils.Console;
 public class Controller {
     private int ticket =0;
     View view = new View();
+    Lotto lotto = new Lotto();
 
     public void run(){
         getPrice();
         giveTickets(ticket);
+        makeNumbers(ticket);
     }
 
     public void getPrice(){
@@ -27,5 +29,11 @@ public class Controller {
 
     public void giveTickets(int ticket){
         view.showTickets(ticket);
+    }
+
+    public void makeNumbers(int ticket){
+        for (int i = 0; i < ticket; i++) {
+            view.showNumber(lotto.makeNumbers());
+        }
     }
 }

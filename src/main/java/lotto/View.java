@@ -8,4 +8,7 @@ public class View {
 
         System.out.println("\n"+ticketCount+"개를 구매했습니다.");
     }
+    public void showNumber(String numbers){
+        System.out.println("["+numbers+"]");
+    }
 }

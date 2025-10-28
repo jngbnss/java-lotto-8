@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "test: 입력요구사항 1000원 단위 예외처리"
+git commit -m "feat: 랜덤 번호 구현"
 git push origin jngbnss
 
 git pull origin main
