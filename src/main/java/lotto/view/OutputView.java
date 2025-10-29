@@ -24,4 +24,8 @@ public class OutputView {
     public void printProfitRate(double rate) {
         System.out.println("총 수익률은 " + rate + "%입니다.");
     }
+
+    public void showCount(int count) {
+        System.out.println("\n"+count+"개를 구매했습니다.");
+    }
 }

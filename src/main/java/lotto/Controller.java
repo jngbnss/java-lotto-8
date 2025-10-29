@@ -11,13 +11,16 @@ public class Controller {
 
 
     public void run() {
-        int purchaseAmount = inputView.inputPurchaseAmount();
+        try{
+            int purchaseAmount = inputView.inputPurchaseAmount();
+
         int count = purchaseAmount / 1000;
+        outputView.showCount(count);
 
 //        // LottoGenerator로 UserLottos 생성
 //        UserLottos userLottos = LottoGenerator.generateUserLottos(count);
 //
-//        //List<Lotto> userLottos = inputView.generateUserLottos(count);
+        //List<Lotto> userLottos = inputView.generateUserLottos(count);
 //        //outputView.printLottos(userLottos);
 
         //DTO를 통해 당첨 정보 생성
@@ -29,5 +32,8 @@ public class Controller {
         //WinningLotto winningLotto = winningLottoDto.toWinningLotto();
         //LottoResult result = new LottoResult(userLottos, winningLotto);
         //outputView.printResult(result, purchaseAmount);
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
