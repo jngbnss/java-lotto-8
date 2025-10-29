@@ -43,17 +43,5 @@ public class UserLottos {
     public List<Lotto> getLottos() {
         return lottos;
     }
-    @Test
-    @DisplayName("로또 구매 개수가 1개일 때도 정상적으로 생성된다")
-    void count가_1일때_정상() {
-        UserLottos userLottos = new UserLottos(1);
-        assertThat(userLottos.getLottos()).hasSize(1);
-    }
-    @Test
-    @DisplayName("로또 구매 개수가 100개일 때도 정상적으로 생성된다")
-    void count가_100일때_정상() {
-        UserLottos userLottos = new UserLottos(100);
-        assertThat(userLottos.getLottos()).hasSize(100);
-    }
 
 }

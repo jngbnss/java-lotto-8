@@ -2,6 +2,8 @@ package lotto.view;
 
 import lotto.domain.Lotto;
 import java.util.List;
+import lotto.domain.LottoResult;
+import lotto.domain.Rank;
 import lotto.domain.UserLottos;
 
 public class OutputView {
@@ -15,19 +17,31 @@ public class OutputView {
         }
     }
 
-    // 당첨 통계 출력 (나중에 추가 가능)
-    public void printWinningStatistics(/* 결과 객체 */) {
-        // 예: "3개 일치 (5,000원) - 2개"
-        // 추후 LottoResult 등 도메인 객체와 연계
+    public void printStatics(LottoResult lottoResult) {
+        System.out.println("\n당첨 통계\n---");
+        //여기서 enum값 받아서 반복문으로 돌리기
+        for (Rank rank : Rank.values()) {
+            if (rank == Rank.NONE) {
+                continue;
+            }
+            int count = lottoResult.getCount(rank);
+            System.out.printf("%d개 일치%s - %d개\n",
+                    rank.getMatchCount(),
+                    rank.isBonus() ? ", 보너스 볼 일치" : "",
+                    count
+            );
+        }
+
+
     }
 
     // 총 수익률 출력
     public void printProfitRate(double rate) {
-        System.out.println("총 수익률은 " + rate + "%입니다.");
+        System.out.println("총 수익률은 " + String.format("%.2f", rate) + "%입니다.");
     }
 
     public void showCount(int count, UserLottos lottos) {
-        System.out.println("\n"+count+"개를 구매했습니다.");
+        System.out.println("\n" + count + "개를 구매했습니다.");
         for (Lotto lotto : lottos.getLottos()) {
             System.out.println(lotto.getNumbers());
         }

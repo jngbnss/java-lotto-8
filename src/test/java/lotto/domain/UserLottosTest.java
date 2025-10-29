@@ -79,4 +79,38 @@ class UserLottosTest {
                 .hasMessageContaining("1개 이상");
     }
 
+    @Test
+    @DisplayName("로또 번호 중복 없음")
+    void 로또_번호_중복_검증() {
+        UserLottos userLottos = new UserLottos(5);
+        for (Lotto lotto : userLottos.getLottos()) {
+            Set<Integer> unique = new HashSet<>(lotto.getNumbers());
+            assertThat(unique.size()).isEqualTo(6);
+        }
+    }
+
+    @Test
+    @DisplayName("로또 번호 오름차순 확인")
+    void 로또_번호_오름차순() {
+        UserLottos userLottos = new UserLottos(5);
+        for (Lotto lotto : userLottos.getLottos()) {
+            List<Integer> numbers = lotto.getNumbers();
+            for (int i = 0; i < numbers.size() - 1; i++) {
+                assertThat(numbers.get(i)).isLessThan(numbers.get(i + 1));
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("로또 번호 1~45 범위 확인")
+    void 로또_번호_범위() {
+        UserLottos userLottos = new UserLottos(5);
+        for (Lotto lotto : userLottos.getLottos()) {
+            for (int n : lotto.getNumbers()) {
+                assertThat(n).isBetween(1, 45);
+            }
+        }
+    }
+
+
 }

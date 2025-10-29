@@ -1,19 +1,19 @@
 package lotto.domain;
 
-public class WinningLotto {
+public class LottoChecker {
     // 당첨번호 + 보너스 번호 보관 / 비교가능 제공
-    private final Lotto winningNumbers;
+    private final Lotto checkNumber;
     private final int bonusNumber;
 
-    public WinningLotto(Lotto winningNumbers, int bonusNumber) {
+    public LottoChecker(Lotto checkNumber, int bonusNumber) {
         // 보너스 넘버 검증
-        this.winningNumbers = winningNumbers;
+        this.checkNumber = checkNumber;
         this.bonusNumber = bonusNumber;
     }
 
     public Rank match(Lotto userLotto){
         int matchCount = (int) userLotto.getNumbers().stream()
-                .filter(winningNumbers.getNumbers()::contains)
+                .filter(checkNumber.getNumbers()::contains)
                 .count();
         boolean bonusMatch = userLotto.getNumbers().contains(bonusNumber);
         return Rank.valueOf(matchCount,bonusMatch);
