@@ -1,6 +1,8 @@
 package lotto.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,9 +14,13 @@ public class Lotto {
     // 여기가 정답인 부분이어야해
 
     public Lotto(List<Integer> inputNumbers) {
-
         LottoValidator.validate(inputNumbers);
-        this.numbers = inputNumbers;
+
+        // inputNumbers가 불변일 수 있으므로 새 ArrayList로 복사
+        List<Integer> numbersCopy = new ArrayList<>(inputNumbers);
+        Collections.sort(numbersCopy);
+
+        this.numbers = numbersCopy;
     }
 
 

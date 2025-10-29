@@ -9,7 +9,6 @@ public class LottoValidator {
         checkSize(numbers);
         checkDuplicate(numbers);
         checkRange(numbers);
-        checkSort(numbers);
     }
 
     private static void checkSort(List<Integer> numbers) {

@@ -26,16 +26,15 @@ class LottoTest {
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
     @Test
     @DisplayName("로또 번호가 1~45 범위를 벗어나면 예외 발생")
-    void 로또_번호_범위_예외(){
+    void 로또_번호_범위_예외() {
         assertThatThrownBy(() -> new Lotto(List.of(0, 2, 3, 4, 5, 55)))
                 .isInstanceOf(IllegalArgumentException.class);
-
     }
 
     @Test
     @DisplayName("정상 로또 번호 입력 시 객체 생성")
     void 정상_로또_생성() {
-        List<Integer> numbers = List.of(1,2,3,4,5,6);
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
         Lotto lotto = new Lotto(numbers);
         assertThat(lotto.getNumbers()).containsExactlyElementsOf(numbers);
     }
@@ -43,7 +42,9 @@ class LottoTest {
     @Test
     @DisplayName("로또 번호는 생성 시 오름차순 정렬")
     void 로또_번호_정렬() {
-
-        assertThatThrownBy(() -> new Lotto(List.of(6,3,1,5,2,4)))
-                .isInstanceOf(IllegalArgumentException.class);}
+        // 입력 순서는 섞여 있음
+        List<Integer> numbers = List.of(6, 3, 1, 5, 2, 4);
+        Lotto lotto = new Lotto(numbers);
+        assertThat(lotto.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
+    }
 }
