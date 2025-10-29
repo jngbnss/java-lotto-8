@@ -10,9 +10,9 @@ public class WinningLotto {
     private final Lotto winningNumbers;
     private final int bonusNumber;
 
-    public WinningLotto(List<Integer>numbers, int bonusNumber) {
+    public WinningLotto(Lotto winningNumbers, int bonusNumber) {
         // 보너스 넘버 검증
-        this.winningNumbers = new Lotto(numbers);
+        this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
     }
 

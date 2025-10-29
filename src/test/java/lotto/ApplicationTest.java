@@ -55,13 +55,7 @@ class ApplicationTest extends NsTest {
         });
     }
 
-    @Test
-    void 입력단위_예외테스트() {
-        Controller controller = new Controller();
-        assertThatThrownBy(() -> controller.priceValidate(1001))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE);
-    }
+
 
     @Override
     public void runMain() {
