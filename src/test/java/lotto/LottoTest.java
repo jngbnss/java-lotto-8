@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 class LottoTest {
     @Test
@@ -30,4 +31,19 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
+
+    @Test
+    @DisplayName("정상 로또 번호 입력 시 객체 생성")
+    void 정상_로또_생성() {
+        List<Integer> numbers = List.of(1,2,3,4,5,6);
+        Lotto lotto = new Lotto(numbers);
+        assertThat(lotto.getNumbers()).containsExactlyElementsOf(numbers);
+    }
+
+    @Test
+    @DisplayName("로또 번호는 생성 시 오름차순 정렬")
+    void 로또_번호_정렬() {
+
+        assertThatThrownBy(() -> new Lotto(List.of(6,3,1,5,2,4)))
+                .isInstanceOf(IllegalArgumentException.class);}
 }

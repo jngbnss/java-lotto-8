@@ -9,6 +9,15 @@ public class LottoValidator {
         checkSize(numbers);
         checkDuplicate(numbers);
         checkRange(numbers);
+        checkSort(numbers);
+    }
+
+    private static void checkSort(List<Integer> numbers) {
+        for (int i = 1; i < numbers.size(); i++) {
+            if(numbers.get(i-1)>numbers.get(i)){
+                throw new IllegalArgumentException("[ERROR] 로또 번호는 오름차순이어야 합니다.");
+            }
+        }
     }
 
     private static void checkSize(List<Integer> numbers) {

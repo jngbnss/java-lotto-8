@@ -14,7 +14,8 @@ public class WinningLottoDto {
         this.bonusNumber = bonusNumber;
     }
 
-    public Lotto toLotto(){
+
+    public Lotto toLotto() {
         List<Integer> numbers = Arrays.stream(lottoWinningnumbersInput.split(","))
                 .map(String::trim)
                 .map(Integer::parseInt)
@@ -25,4 +26,11 @@ public class WinningLottoDto {
     public int getBonusNumber() {
         return bonusNumber;
     }
+
+//    //여기 애매리송
+//    public WinningLotto toWinningLotto() {
+//        Lotto lotto = new Lotto(lottoWinningnumbersInput); // 문자열 → Lotto 변환 + 검증
+//        return new WinningLotto(lotto, bonusNumber);      // WinningLotto 생성
+//    }
+
 }
