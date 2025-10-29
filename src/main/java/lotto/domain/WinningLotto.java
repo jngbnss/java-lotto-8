@@ -1,10 +1,5 @@
 package lotto.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class WinningLotto {
     // 당첨번호 + 보너스 번호 보관 / 비교가능 제공
     private final Lotto winningNumbers;
