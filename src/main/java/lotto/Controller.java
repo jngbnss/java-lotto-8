@@ -1,4 +1,5 @@
 package lotto;
+
 import lotto.domain.*;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -11,28 +12,20 @@ public class Controller {
 
 
     public void run() {
-        try{
+        try {
             int purchaseAmount = inputView.inputPurchaseAmount();
 
-        int count = purchaseAmount / 1000;
-        outputView.showCount(count);
+            int count = purchaseAmount / 1000;
+            UserLottos userLottos = new UserLottos(count);
+            outputView.showCount(count, userLottos);
 
-//        // LottoGenerator로 UserLottos 생성
-//        UserLottos userLottos = LottoGenerator.generateUserLottos(count);
-//
-        //List<Lotto> userLottos = inputView.generateUserLottos(count);
-//        //outputView.printLottos(userLottos);
+            //DTO를 통해 당첨 정보 생성
+            String winningNumbersInput = inputView.inputWinningNumbers();//1,2,3
+            int bonusNumber = inputView.inputBonusNumber();
+            WinningLottoDto winningLottoDto = new WinningLottoDto(winningNumbersInput, bonusNumber);
 
-        //DTO를 통해 당첨 정보 생성
-        String winningNumbersInput = inputView.inputWinningNumbers();//1,2,3
-        int bonusNumber = inputView.inputBonusNumber();
-        WinningLottoDto winningLottoDto = new WinningLottoDto(winningNumbersInput, bonusNumber);
 
-        // 컨트롤러에서 Lotto를 직접 만들 필요 없음
-        //WinningLotto winningLotto = winningLottoDto.toWinningLotto();
-        //LottoResult result = new LottoResult(userLottos, winningLotto);
-        //outputView.printResult(result, purchaseAmount);
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }

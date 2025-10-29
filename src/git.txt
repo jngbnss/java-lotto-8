@@ -4,11 +4,30 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "test: 금액 예외 테스트"
+git commit -m "feat: 랜덤번호생성"
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링
 test: 로또 번호 1~45 범위
+
+지금 천원단위로 받았고 예외처리함
+이제 /1000 만큼 반복하고 만들어보자
+
+진행할 기능 요구사항
+1.랜덤번호생성테스트
+// 일단 생성완료했고
+//테스트 진행하기
+6개 숫자가 정상적으로 저장되는지
+
+숫자가 1~45 범위인지
+
+중복된 숫자가 없는지
+
+오름차순으로 정렬되는지
+
+잘못된 입력(6개 미만, 6개 초과, 범위 벗어남) 시 예외 발생
+userlotto생성 테스트
+결과계산 테스트
 
 git pull origin main
 

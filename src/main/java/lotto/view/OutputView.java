@@ -2,6 +2,7 @@ package lotto.view;
 
 import lotto.domain.Lotto;
 import java.util.List;
+import lotto.domain.UserLottos;
 
 public class OutputView {
 
@@ -25,7 +26,10 @@ public class OutputView {
         System.out.println("총 수익률은 " + rate + "%입니다.");
     }
 
-    public void showCount(int count) {
+    public void showCount(int count, UserLottos lottos) {
         System.out.println("\n"+count+"개를 구매했습니다.");
+        for (Lotto lotto : lottos.getLottos()) {
+            System.out.println(lotto.getNumbers());
+        }
     }
 }
