@@ -1,27 +1,13 @@
-//package lotto.view;
+//package lotto;
 //
+//import static org.assertj.core.api.Assertions.assertThat;
+//import static org.assertj.core.api.Assertions.assertThatThrownBy;
+//import static org.junit.jupiter.api.Assertions.*;
+//
+//import lotto.view.InputView;
 //import org.junit.jupiter.api.Test;
 //
-//import static org.assertj.core.api.Assertions.assertThatThrownBy;
-//import static org.assertj.core.api.Assertions.assertThat;
-//
-//class InputViewTest {
-//
-//    // 상속과 오버라이드를 이용한 테스트용 입력 주입
-//    // 테스트용 InputView 클래스
-//    static class TestInputView extends InputView {
-//        private final String input;
-//
-//        public TestInputView(String input) {
-//            this.input = input;
-//        }
-//
-//        @Override
-//        protected String readLine() {
-//            return input; // 테스트용 입력 반환
-//        }
-//    }
-//
+//class PurchaseValidatorTest {
 //    @Test
 //    void 숫자아닌값_입력시_예외() {
 //        InputView inputView = new TestInputView("abc");

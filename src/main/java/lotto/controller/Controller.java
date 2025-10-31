@@ -1,10 +1,12 @@
-package lotto;
+package lotto.controller;
+
+import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import lotto.domain.*;
+import lotto.validator.PurchaseValidator;
+import lotto.validator.utilValidator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
-
-import java.util.List;
 
 public class Controller {
     private final InputView inputView = new InputView();
@@ -13,9 +15,23 @@ public class Controller {
 
     public void run() {
         try {
-            int purchaseAmount = inputView.inputPurchaseAmount();
 
+            //1금액 입력
+            int purchaseAmount  = inputPurchaseView();
+            //검증
+            PurchaseValidator.validateAmount(purchaseAmount);
+            //2사용자 로또 생성
+            //3당첨 번호 입력 + 보너스
+            //검증
+            //4로또 검사 및 결과 생성
+            //결과 출력
+
+
+
+
+            //int purchaseAmount1 = inputView.inputPurchaseAmount1();
             int count = purchaseAmount / 1000;
+            //여기서 검증한번하면 좋은데
             UserLottos userLottos = new UserLottos(count);
             outputView.showCount(count, userLottos);
 
@@ -54,5 +70,14 @@ public class Controller {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private int inputPurchaseView() {
+        inputView.intPurchaseAmount();
+        String input = readLine();
+        utilValidator.validateNumber(input); // 숫자 검증
+        return Integer.parseInt(input); // 숫자 변환
+        //뷰에서 구입금액을 입력해 주세요를 보여주고
+        // 입력받기
     }
 }
