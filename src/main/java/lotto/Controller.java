@@ -21,10 +21,13 @@ public class Controller {
 
             //DTO를 통해 당첨 정보 생성
             String winningNumbersInput = inputView.inputWinningNumbers();//1,2,3
+            // 여기서 오류 난다
+
             int bonusNumber = inputView.inputBonusNumber();
 
             WinningLottoDto winningLottoDto = new WinningLottoDto(winningNumbersInput, bonusNumber);
 
+            // 정답 구하는  로직
             LottoChecker checker = new LottoChecker(
                     new Lotto(winningLottoDto.getNumbers()),
                             winningLottoDto.getBonusNumber()

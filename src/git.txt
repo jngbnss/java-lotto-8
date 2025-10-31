@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "feat: 결과 계산 및 수익률 "
+git commit -m "test: LottoChecker test  정답 및 등수 확인 "
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링
@@ -16,6 +16,11 @@ test: 로또 번호 1~45 범위
 진행할 기능 요구사항
 
 결과계산 테스트만 진행하면 되겠다
+// 결과 계산 진행하기
+
+// 입력값 오류 6개 입력이 안되면 바로 나와야함
+// 입력쪽에서 벨리데이션 진행하니까
+// 컨트롤러에서 진행하자
 
 git pull origin jngbnss
 git branch
