@@ -17,7 +17,8 @@ test: 로또 번호 1~45 범위
 
 결과계산 테스트만 진행하면 되겠다
 
-git pull origin main
+git pull origin jngbnss
+git branch
 
 git add .
 git commit -m "save"
