@@ -20,20 +20,19 @@ public class Controller {
             int purchaseAmount  = inputPurchaseView();
             //검증
             PurchaseValidator.validateAmount(purchaseAmount);
-            //2사용자 로또 생성
+            int count = purchaseAmount/1000;
+            //2로또 랜덤 번호 생성
+            outputView.showCount(count);
             //3당첨 번호 입력 + 보너스
+            //랜덤번호 생성
+            GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);
+            outputView.showLottos(generateLottoNumbers);
             //검증
             //4로또 검사 및 결과 생성
             //결과 출력
 
-
-
-
-            //int purchaseAmount1 = inputView.inputPurchaseAmount1();
-            int count = purchaseAmount / 1000;
             //여기서 검증한번하면 좋은데
-            UserLottos userLottos = new UserLottos(count);
-            outputView.showCount(count, userLottos);
+            //outputView.showCount1(count, generateLottoNumbers);
 
             //DTO를 통해 당첨 정보 생성
             String winningNumbersInput = inputView.inputWinningNumbers();//1,2,3
@@ -49,7 +48,7 @@ public class Controller {
                             winningLottoDto.getBonusNumber()
                     );
 
-            LottoResult lottoResult = new LottoResult(userLottos, checker);
+            LottoResult lottoResult = new LottoResult(generateLottoNumbers, checker);
 
             /*
             List<Integer> numbers = inputView.inputWinningNumbersAsList(); // List<Integer> 바로 받음
@@ -72,6 +71,8 @@ public class Controller {
         }
     }
 
+
+
     private int inputPurchaseView() {
         inputView.intPurchaseAmount();
         String input = readLine();
@@ -80,4 +81,13 @@ public class Controller {
         //뷰에서 구입금액을 입력해 주세요를 보여주고
         // 입력받기
     }
+
+    private void showCount(int count){
+        outputView.showCount(count);
+    }
+    private GenerateLottoNumbers generateNumbers(int count) {
+        return new GenerateLottoNumbers(count);
+    }
+
+
 }

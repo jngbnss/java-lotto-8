@@ -1,14 +1,12 @@
 package lotto.domain;
 
-import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 
 public class LottoResult {
     private final Map<Rank, Integer> results = new EnumMap<>(Rank.class);
 
-    public LottoResult(UserLottos userLottos, LottoChecker checker) {
+    public LottoResult(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
 
 
         //초기화
@@ -17,7 +15,7 @@ public class LottoResult {
         }
 
         //결과 집계
-        for (Lotto userLotto : userLottos.getLottos()) {
+        for (Lotto userLotto : generateLottoNumbers.getNumbers()) {
             Rank rank = checker.match(userLotto);
             results.put(rank,results.get(rank)+1);
 
