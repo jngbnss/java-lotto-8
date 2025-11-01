@@ -22,7 +22,7 @@ public class Controller {
 
             //2로또 랜덤 번호 생성
             outputView.showCount(count);
-            GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);//로또 랜덤 번호 생성 후 로또 클래스에서 검증 진행
+            GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(count);//로또 랜덤 번호 생성 후 로또 클래스에서 검증 진행
             outputView.showLottos(generateLottoNumbers);// 랜덤으로 생성된 로또번호 보여주기
 
             //3당첨 번호 입력 + 보너스
@@ -34,6 +34,7 @@ public class Controller {
             String inputBonusNumber = readLine();
             int bonusNumber = Converter.intConverter(inputBonusNumber);// 컨버터에서 int 타입으로 변경 및 숫자범위 검증 진행
             WinningLotto winningLotto = new WinningLotto(winningNumber, bonusNumber); // 보너스 넘버 중복 검증
+            // 여기까지 완료
 
             //4로또 검사 및 결과 생성
             LottoChecker lottoChecker = new LottoChecker(winningLotto.getWinningNumbers(),
@@ -49,15 +50,4 @@ public class Controller {
             System.out.println(e.getMessage());
         }
     }
-
-
-    private void showCount(int count) {
-        outputView.showCount(count);
-    }
-
-    private GenerateLottoNumbers generateNumbers(int count) {
-        return new GenerateLottoNumbers(count);
-    }
-
-
 }
