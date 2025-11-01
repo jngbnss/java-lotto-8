@@ -28,9 +28,11 @@ public class OutputView {
             }
 
             int count = lottoResult.getCount(rank);
-            System.out.printf("%d개 일치%s - %d개\n",
+            System.out.printf(
+                    "%d개 일치%s (%s원) - %d개\n",
                     rank.getMatchCount(),
                     rank.isBonus() ? ", 보너스 볼 일치" : "",
+                    String.format("%,d", rank.getPrize()), // 천 단위 콤마 표시
                     count
             );
         }

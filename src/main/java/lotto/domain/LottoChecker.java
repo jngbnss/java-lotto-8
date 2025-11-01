@@ -6,8 +6,6 @@ public class LottoChecker {
     private final int bonusNumber;
 
     public LottoChecker(Lotto checkNumber, int bonusNumber) {
-        // 보너스 넘버 검증
-        // 지금 이러면 안되는게 보너스넘버가 끝나고 진행돼
         this.checkNumber = checkNumber;
         this.bonusNumber = bonusNumber;
     }

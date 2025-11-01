@@ -46,30 +46,19 @@ public class Controller {
             WinningLotto winningLotto = new WinningLotto(winningNumber, bonusNumber);
 
             //4로또 검사 및 결과 생성
+            LottoChecker lottoChecker = new LottoChecker(winningLotto.getWinningNumbers(),
+                    winningLotto.getBonusNumber());
+
+            LottoResult result = new LottoResult(generateLottoNumbers, lottoChecker);
             //결과 출력
 
-            //DTO를 통해 당첨 정보 생성
-
-            // 여기서 오류 난다
-
-            // 정답 구하는  로직
-//            LottoChecker checker = new LottoChecker(
-//                    new Lotto(winningLottoDto.getNumbers()),
-//                    winningLottoDto.getBonusNumber()
-//            );
-
-            //LottoResult lottoResult = new LottoResult(generateLottoNumbers, checker);
-
-            //outputView.printStatics(lottoResult);
-            //outputView.printProfitRate(lottoResult.calculateProfitRate(purchaseAmount));
-
+            outputView.printStatics(result);
+            outputView.printProfitRate(result.calculateProfitRate(purchaseAmount));
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
-
-
 
 
     private int inputPurchaseView() {
