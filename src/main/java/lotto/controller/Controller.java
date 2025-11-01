@@ -25,16 +25,12 @@ public class Controller {
             //2로또 랜덤 번호 생성
             outputView.showCount(count);
             GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);//로또 랜덤 번호 생성 후 로또 클래스에서 검증 진행
-            // 랜덤으로 생성된 로또번호 보여주기
-            outputView.showLottos(generateLottoNumbers);
+            outputView.showLottos(generateLottoNumbers);// 랜덤으로 생성된 로또번호 보여주기
 
             //3당첨 번호 입력 + 보너스
-            // 중간에 검증하고 바로 만드는게 좋겠다
-
-            //당첨번호 입력
-            // 1️⃣ 사용자 입력
-            String winningNumbersInput = inputView.inputWinningNumbers();
-            // 변환하기 이걸 어디서 해야할까 변환하는 도메인을 따로 만들자
+            inputView.inputWinningNumbers(); //당첨번호 입력
+            String winningNumbersInput = readLine();
+                    // 변환하기 이걸 어디서 해야할까 변환하는 도메인을 따로 만들자
             // 여기부터 유틸즈에 컨버터넣기
 
             Lotto winningNumber = converter.lottoConverter(winningNumbersInput);
