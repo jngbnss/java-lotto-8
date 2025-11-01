@@ -1,6 +1,7 @@
 package lotto.domain;
 
 public class LottoChecker {
+    // 여기 정답을 담고있음
     // 당첨번호 + 보너스 번호 보관 / 비교가능 제공
     private final Lotto checkNumber;
     private final int bonusNumber;

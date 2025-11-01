@@ -38,7 +38,6 @@ public class OutputView {
         }
 
 
-
     }
 
     // 총 수익률 출력
@@ -53,7 +52,7 @@ public class OutputView {
         }
     }
 
-    public void showCount(int count){
+    public void showCount(int count) {
         System.out.println("\n" + count + "개를 구매했습니다.");
     }
 

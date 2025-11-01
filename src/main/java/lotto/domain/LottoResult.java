@@ -8,17 +8,25 @@ public class LottoResult {
 
     public LottoResult(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
 
-
         //초기화
-        for (Rank rank : Rank.values()) {
-            results.put(rank,0);
-        }
+        initializeResults();
+        //결과 확인
+        checkingNumbers(generateLottoNumbers, checker);
+    }
 
+    private void checkingNumbers(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
         //결과 집계
         for (Lotto userLotto : generateLottoNumbers.getNumbers()) {
             Rank rank = checker.match(userLotto);
-            results.put(rank,results.get(rank)+1);
+            results.put(rank, results.get(rank) + 1);
+            //result에 저장
+        }
+    }
 
+    private void initializeResults() {
+        //초기화
+        for (Rank rank : Rank.values()) {
+            results.put(rank, 0);
         }
     }
 

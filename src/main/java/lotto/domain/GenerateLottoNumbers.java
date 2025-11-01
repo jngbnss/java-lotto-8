@@ -19,15 +19,21 @@ public class GenerateLottoNumbers {
 
     // 생성자에서 count만 받아서 내부에서 랜덤 로또 생성
     public GenerateLottoNumbers(int count) {
-        validateCount(count);
-        this.numbers = new ArrayList<>();
+        validateCount(count); // 여기서 검증하는 거는 괜찮음
+        this.numbers = generateLottos(count);
+    }
+
+    private List<Lotto> generateLottos(int count) {
+
+        List<Lotto>lottos = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6)
                     .stream()
                     .sorted()
                     .collect(Collectors.toList());
-            this.numbers.add(new Lotto(numbers)); // 검증진행
+            lottos.add(new Lotto(numbers)); // 검증진행
         }
+        return lottos;
     }
 
     private void validateCount(int count) {

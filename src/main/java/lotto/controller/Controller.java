@@ -20,13 +20,21 @@ public class Controller {
 
             //1금액 입력
             int purchaseAmount = inputPurchaseView();
-            //검증
+            //검증도 컨트롤러에서 하지말자 구매관련도 도메인 만들자
+            // new Purchasement(readline);
+            // 내부에서 검증하고 통과하면
+            // int count / 1000;
+
             PurchaseValidator.validateAmount(purchaseAmount);
             int count = purchaseAmount / 1000;
+
             //2로또 랜덤 번호 생성
-            //검증
+
             outputView.showCount(count);
+            //로또 랜덤 번호 생성 및 검증 진행
             GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);
+
+            // 랜덤으로 생성된 로또번호 보여주기
             outputView.showLottos(generateLottoNumbers);
 
             //3당첨 번호 입력 + 보너스
@@ -45,9 +53,12 @@ public class Controller {
             //보너스 검증도 만들면서 진행
             WinningLotto winningLotto = new WinningLotto(winningNumber, bonusNumber);
 
+
+            /// // 오케이 일단 이 위까지는 통과
             //4로또 검사 및 결과 생성
             LottoChecker lottoChecker = new LottoChecker(winningLotto.getWinningNumbers(),
                     winningLotto.getBonusNumber());
+
 
             LottoResult result = new LottoResult(generateLottoNumbers, lottoChecker);
             //결과 출력
