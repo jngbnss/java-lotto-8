@@ -47,7 +47,7 @@ public class OutputView {
 
     public void showCount1(int count, GenerateLottoNumbers lottos) {
         System.out.println("\n" + count + "개를 구매했습니다.");
-        for (Lotto lotto : lottos.getNumbers()) {
+        for (Lotto lotto : lottos.getLottos()) {
             System.out.println(lotto.getNumbers());
         }
     }
@@ -57,7 +57,7 @@ public class OutputView {
     }
 
     public void showLottos(GenerateLottoNumbers generateLottoNumbers) {
-        for (Lotto lotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto lotto : generateLottoNumbers.getLottos()) {
             System.out.println(lotto.getNumbers());
         }
     }

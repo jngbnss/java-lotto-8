@@ -23,11 +23,8 @@ public class Controller {
             int count = purchasement.getValue() / 1000;
 
             //2로또 랜덤 번호 생성
-
             outputView.showCount(count);
-            //로또 랜덤 번호 생성 및 검증 진행
-            GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);
-
+            GenerateLottoNumbers generateLottoNumbers = generateNumbers(count);//로또 랜덤 번호 생성 및 검증 진행
             // 랜덤으로 생성된 로또번호 보여주기
             outputView.showLottos(generateLottoNumbers);
 

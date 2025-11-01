@@ -17,9 +17,9 @@ class GenerateLottoNumbersTest {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(count);
 
         // 구매한 개수 확인
-        assertThat(generateLottoNumbers.getNumbers().size()).isEqualTo(count);
+        assertThat(generateLottoNumbers.getLottos().size()).isEqualTo(count);
 
-        for (Lotto lotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto lotto : generateLottoNumbers.getLottos()) {
             List<Integer> numbers = lotto.getNumbers();
 
             // 6개의 숫자가 있는지
@@ -53,14 +53,14 @@ class GenerateLottoNumbersTest {
     @DisplayName("count가 0 일 때")
     void count가_0일때() {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(1);
-        assertThat(generateLottoNumbers.getNumbers()).hasSize(1);
+        assertThat(generateLottoNumbers.getLottos()).hasSize(1);
     }
 
     @Test
     @DisplayName("count가 100 일 때")
     void count가_100일때() {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(100);
-        assertThat(generateLottoNumbers.getNumbers()).hasSize(100);
+        assertThat(generateLottoNumbers.getLottos()).hasSize(100);
     }
 
     @Test
@@ -82,7 +82,7 @@ class GenerateLottoNumbersTest {
     @DisplayName("로또 번호 중복 없음")
     void 로또_번호_중복_검증() {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(5);
-        for (Lotto lotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto lotto : generateLottoNumbers.getLottos()) {
             Set<Integer> unique = new HashSet<>(lotto.getNumbers());
             assertThat(unique.size()).isEqualTo(6);
         }
@@ -92,7 +92,7 @@ class GenerateLottoNumbersTest {
     @DisplayName("로또 번호 오름차순 확인")
     void 로또_번호_오름차순() {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(5);
-        for (Lotto lotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto lotto : generateLottoNumbers.getLottos()) {
             List<Integer> numbers = lotto.getNumbers();
             for (int i = 0; i < numbers.size() - 1; i++) {
                 assertThat(numbers.get(i)).isLessThan(numbers.get(i + 1));
@@ -104,7 +104,7 @@ class GenerateLottoNumbersTest {
     @DisplayName("로또 번호 1~45 범위 확인")
     void 로또_번호_범위() {
         GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(5);
-        for (Lotto lotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto lotto : generateLottoNumbers.getLottos()) {
             for (int n : lotto.getNumbers()) {
                 assertThat(n).isBetween(1, 45);
             }

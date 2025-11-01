@@ -16,7 +16,7 @@ public class LottoResult {
 
     private void checkingNumbers(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
         //결과 집계
-        for (Lotto userLotto : generateLottoNumbers.getNumbers()) {
+        for (Lotto userLotto : generateLottoNumbers.getLottos()) {
             Rank rank = checker.match(userLotto);
             results.put(rank, results.get(rank) + 1);
             //result에 저장
