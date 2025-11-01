@@ -20,10 +20,13 @@ public class OutputView {
     public void printStatics(LottoResult lottoResult) {
         System.out.println("\n당첨 통계\n---");
         //여기서 enum값 받아서 반복문으로 돌리기
+        // 이걸 여기서 왜해
         for (Rank rank : Rank.values()) {
-            if (rank == Rank.NONE) {
+            // NONE 또는 3개 미만 일치한 경우는 출력하지 않음
+            if (rank == Rank.NONE || rank.getMatchCount() < 3) {
                 continue;
             }
+
             int count = lottoResult.getCount(rank);
             System.out.printf("%d개 일치%s - %d개\n",
                     rank.getMatchCount(),
@@ -31,6 +34,7 @@ public class OutputView {
                     count
             );
         }
+
 
 
     }

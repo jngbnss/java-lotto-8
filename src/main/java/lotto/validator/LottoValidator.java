@@ -10,6 +10,9 @@ public class LottoValidator {
         checkDuplicate(numbers);
         checkRange(numbers);
     }
+    public static void validateWinningNumber(String winningNumbersInput) {
+
+    }
 
     private static void checkSort(List<Integer> numbers) {
         for (int i = 1; i < numbers.size(); i++) {

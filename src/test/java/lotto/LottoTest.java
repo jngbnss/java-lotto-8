@@ -49,4 +49,6 @@ class LottoTest {
         Lotto lotto = new Lotto(numbers);
         assertThat(lotto.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
     }
+
+    // 입력된 로또 정답의 테스트
 }
