@@ -9,16 +9,15 @@ public class WinningLotto {
 
     public WinningLotto(Lotto numbers, int bonusNumber) {
         this.winningNumbers = numbers;
-        validateBonusNumber(bonusNumber);
+        validateBonusNumberNotDuplicate(bonusNumber);
         this.bonusNumber = bonusNumber;
     }
 
-    private void validateBonusNumber(int bonusNumber) {
-        if (bonusNumber < 1 || bonusNumber > 45) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 1~45 범위여야 합니다.");
-        }
+    private void validateBonusNumberNotDuplicate(int bonusNumber) {
+
         if (winningNumbers.getNumbers().contains(bonusNumber)) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
+            throw new IllegalArgumentException(
+                    ErrorMessage.BONUS_NUMBER_NOT_DUPLICATE.getMessage());
         }
     }
     public Lotto getWinningNumbers() {

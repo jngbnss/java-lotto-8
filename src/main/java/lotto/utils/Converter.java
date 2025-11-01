@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import lotto.domain.Lotto;
-import lotto.validator.utilValidator;
+import lotto.validator.BonusNumberValidator;
 
-public class converter {
-    public static Lotto lottoConverter(String input){
+public class Converter {
+    public static Lotto lottoConverter(String input) {
         List<Integer> numbers = Arrays.stream(input.split(","))
                 .map(String::trim)
                 .map(Integer::parseInt)
@@ -17,8 +17,8 @@ public class converter {
     }
 
 
-    public static  int intConverter(String input){
-        utilValidator.validateNumber(input); // 숫자 검증
-        return Integer.parseInt(input);
+    public static int intConverter(String input) {
+        return BonusNumberValidator.validateNumber(input); // 숫자 검증
+
     }
 }

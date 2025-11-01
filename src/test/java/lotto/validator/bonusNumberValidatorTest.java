@@ -1,13 +1,12 @@
 package lotto.validator;
 
 import static lotto.validator.PurchaseValidator.validateAmount;
-import static lotto.validator.utilValidator.validateNumber;
+import static lotto.validator.BonusNumberValidator.validateNumber;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class utilValidatorTest {
+class bonusNumberValidatorTest {
     @Test
     void 한글_입력시_예외() {
         assertThatThrownBy(() -> validateNumber("백만원"))

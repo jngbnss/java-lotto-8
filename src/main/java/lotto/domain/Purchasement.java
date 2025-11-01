@@ -8,6 +8,7 @@ public class Purchasement {
 
     public Purchasement(String purchasePrice) {
         this.purchasement = PurchasementValidator.validateAndParse(purchasePrice);
+        // 컨버터로 옮기기
     }
 
 

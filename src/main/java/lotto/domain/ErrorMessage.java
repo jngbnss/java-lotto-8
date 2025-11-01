@@ -10,7 +10,8 @@ public enum ErrorMessage {
     INVALID_LOTTO_SIZE("[ERROR] 로또 번호는 6개여야 합니다."),
     DUPLICATE_LOTTO_NUMBER("[ERROR] 로또 번호는 중복되면 안됩니다."),
     OUT_OF_RANGE_LOTTO_NUMBER("[ERROR] 로또 번호의 범위는 1~45입니다."),
-    NOT_SORTED_LOTTO_NUMBER("[ERROR] 로또 번호는 오름차순이어야 합니다.");;
+    NOT_SORTED_LOTTO_NUMBER("[ERROR] 로또 번호는 오름차순이어야 합니다."),
+    BONUS_NUMBER_NOT_DUPLICATE("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
 
 
     private final String message;
