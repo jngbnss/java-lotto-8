@@ -4,7 +4,6 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import lotto.domain.*;
 import lotto.utils.converter;
-import lotto.validator.PurchaseValidator;
 import lotto.validator.utilValidator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -19,14 +18,17 @@ public class Controller {
         try {
 
             //1금액 입력
-            int purchaseAmount = inputPurchaseView();
+            inputView.intPurchaseAmount(); // 뷰화면 보여주고
+            //int purchaseAmount = inputPurchaseView();
             //검증도 컨트롤러에서 하지말자 구매관련도 도메인 만들자
-            // new Purchasement(readline);
+
+            String  purchasePrice = readLine();
+            Purchasement purchasement = new Purchasement(purchasePrice);
             // 내부에서 검증하고 통과하면
             // int count / 1000;
 
-            PurchaseValidator.validateAmount(purchaseAmount);
-            int count = purchaseAmount / 1000;
+            //PurchaseValidator.validateAmount(purchaseAmount);
+            int count = purchasement.getValue() / 1000;
 
             //2로또 랜덤 번호 생성
 
@@ -64,7 +66,7 @@ public class Controller {
             //결과 출력
 
             outputView.printStatics(result);
-            outputView.printProfitRate(result.calculateProfitRate(purchaseAmount));
+            outputView.printProfitRate(result.calculateProfitRate(purchasement.getValue()));
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -72,12 +74,14 @@ public class Controller {
     }
 
 
+    //여기 진행중
     private int inputPurchaseView() {
         inputView.intPurchaseAmount();
         String input = readLine();
         utilValidator.validateNumber(input); // 숫자 검증
         return Integer.parseInt(input); // 숫자 변환
         //뷰에서 구입금액을 입력해 주세요를 보여주고
+        // 아뷰에서 검증하지말라고
         // 입력받기
     }
 

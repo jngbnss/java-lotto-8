@@ -17,7 +17,7 @@ public class converter {
     }
 
 
-    public static  int lottoConverter1(String input){
+    public static  int intConverter(String input){
         utilValidator.validateNumber(input); // 숫자 검증
         return Integer.parseInt(input);
     }
