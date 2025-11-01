@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "feat: 공통 검증 및 에러메시지  "
+git commit -m "feat: 로또 랜덤 번호 생성 공통 검증 및 오류 메시지 적용  "
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링

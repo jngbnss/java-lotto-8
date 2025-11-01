@@ -6,7 +6,11 @@ public enum ErrorMessage {
     NEGATIVE_OR_ZERO_AMOUNT("[ERROR] 금액은 0보다 커야합니다."),
     INVALID_UNIT_AMOUNT("[ERROR] 금액은 1000원 단위로 입력해야 합니다."),
     MINIMUM_AMOUNT("[ERROR] 금액은 최소 1000원 이상이어야 합니다."),
-    MAXIMUM_AMOUNT("[ERROR] 금액은 10만원 이하여야 합니다(1인당 100매까지 가능).");
+    MAXIMUM_AMOUNT("[ERROR] 금액은 10만원 이하여야 합니다(1인당 100매까지 가능)."),
+    INVALID_LOTTO_SIZE("[ERROR] 로또 번호는 6개여야 합니다."),
+    DUPLICATE_LOTTO_NUMBER("[ERROR] 로또 번호는 중복되면 안됩니다."),
+    OUT_OF_RANGE_LOTTO_NUMBER("[ERROR] 로또 번호의 범위는 1~45입니다."),
+    NOT_SORTED_LOTTO_NUMBER("[ERROR] 로또 번호는 오름차순이어야 합니다.");;
 
 
     private final String message;

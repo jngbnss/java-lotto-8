@@ -6,11 +6,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import lotto.validator.LottoValidator;
+import lotto.validator.LottoCountsValidator;
 
 public class GenerateLottoNumbers {
-    private static final int MIN_COUNT = 1;   // 최소 구매 가능 개수
-    private static final int MAX_COUNT = 100; // 최대 구매 가능 개수
     private static final int LOTTO_SIZE = 6;  // 한 장당 숫자 개수
     private static final int MIN_NUMBER = 1;  // 숫자 최소값
     private static final int MAX_NUMBER = 45; // 숫자 최대값
@@ -19,8 +17,8 @@ public class GenerateLottoNumbers {
 
     // 생성자에서 count만 받아서 내부에서 랜덤 로또 생성
     public GenerateLottoNumbers(int count) {
-        LottoValidator.validateCount(count);
-        this.lottos = generateLottos(count);
+        LottoCountsValidator.validateCount(count); // 공통 validator 사용
+        this.lottos = generateLottos(count); // 랜덤 생성
     }
 
     private List<Lotto> generateLottos(int count) {
