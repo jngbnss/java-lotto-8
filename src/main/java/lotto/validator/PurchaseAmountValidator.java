@@ -1,6 +1,6 @@
 package lotto.validator;
 
-public class PurchasementValidator {
+public class PurchaseAmountValidator {
 
     private static final int MIN_AMOUNT = 1000;
     private static final int MAX_AMOUNT = 100_000;

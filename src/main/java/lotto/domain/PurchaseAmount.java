@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import lotto.validator.PurchasementValidator;
+import lotto.validator.PurchaseAmountValidator;
 
 public class PurchaseAmount {
 
@@ -8,7 +8,7 @@ public class PurchaseAmount {
 
     public PurchaseAmount(String purchasePrice) {
         // 구매 가격 변환 및 검증 진행
-        this.purchaseAmount = PurchasementValidator.validateAndParse(purchasePrice);
+        this.purchaseAmount = PurchaseAmountValidator.validateAndParse(purchasePrice);
     }
 
 
