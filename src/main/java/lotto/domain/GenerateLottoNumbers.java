@@ -13,12 +13,11 @@ public class GenerateLottoNumbers {
     private static final int MIN_NUMBER = 1;  // 숫자 최소값
     private static final int MAX_NUMBER = 45; // 숫자 최대값
 
-    private final List<Lotto> lottos;
+    private final List<Lotto> randomlyGeneratedLotteries;
 
-    // 생성자에서 count만 받아서 내부에서 랜덤 로또 생성
     public GenerateLottoNumbers(int count) {
         LottoCountsValidator.validateCount(count); // 공통 validator 사용
-        this.lottos = generateLottos(count); // 랜덤 생성
+        this.randomlyGeneratedLotteries = generateLottos(count); // 랜덤 생성
     }
 
     private List<Lotto> generateLottos(int count) {
@@ -35,8 +34,8 @@ public class GenerateLottoNumbers {
     }
 
 
-    public List<Lotto> getLottos() {
-        return lottos;
+    public List<Lotto> getRandomlyGeneratedLotteries() {
+        return randomlyGeneratedLotteries;
     }
 
 }

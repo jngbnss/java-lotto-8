@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "docs: READEME 구입 금액 입력 완료 추가"
+git commit -m "refactor: 랜덤으로 생성된 로또 뷰에서 데이터 직접 처리를 컨트롤러에서 진행"
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링

@@ -2,6 +2,7 @@ package lotto.controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.List;
 import lotto.domain.*;
 import lotto.utils.Converter;
 import lotto.view.InputView;
@@ -21,9 +22,12 @@ public class Controller {
             int count = purchaseAmount.getValue() / 1000;
 
             //2로또 랜덤 번호 생성
-            outputView.showCount(count);
-            GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(count);//로또 랜덤 번호 생성 후 로또 클래스에서 검증 진행
-            outputView.showLottos(generateLottoNumbers);// 랜덤으로 생성된 로또번호 보여주기
+            outputView.showCount(count); // 구매 갯수 출력
+
+            //로또 랜덤 번호 생성 후 로또 클래스에서 검증 진행
+            GenerateLottoNumbers generateLottoNumbers = new GenerateLottoNumbers(count);
+            List<Lotto> lotteries = generateLottoNumbers.getRandomlyGeneratedLotteries();
+            outputView.showLotteries(lotteries);// 랜덤으로 생성된 로또번호 보여주기
 
             //3당첨 번호 입력 + 보너스
             inputView.inputWinningNumbers(); //당첨번호 입력

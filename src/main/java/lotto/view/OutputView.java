@@ -8,6 +8,17 @@ import lotto.domain.GenerateLottoNumbers;
 
 public class OutputView {
 
+    public void showCount(int count) {
+        System.out.println("\n" + count + "개를 구매했습니다.");
+    }
+
+    public void showLotteries(List<Lotto> lotteries) {
+        for (Lotto lotto : lotteries) {
+            System.out.println(lotto.getNumbers());
+        }
+    }
+
+
     // 구매한 로또 전체 출력
     public void printPurchasedLottos(List<Lotto> lottos) {
         System.out.println();
@@ -42,20 +53,5 @@ public class OutputView {
         System.out.println("총 수익률은 " + String.format("%.2f", rate) + "%입니다.");
     }
 
-    public void showCount1(int count, GenerateLottoNumbers lottos) {
-        System.out.println("\n" + count + "개를 구매했습니다.");
-        for (Lotto lotto : lottos.getLottos()) {
-            System.out.println(lotto.getNumbers());
-        }
-    }
 
-    public void showCount(int count) {
-        System.out.println("\n" + count + "개를 구매했습니다.");
-    }
-
-    public void showLottos(GenerateLottoNumbers generateLottoNumbers) {
-        for (Lotto lotto : generateLottoNumbers.getLottos()) {
-            System.out.println(lotto.getNumbers());
-        }
-    }
 }
