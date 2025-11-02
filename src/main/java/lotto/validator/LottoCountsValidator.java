@@ -1,7 +1,5 @@
 package lotto.validator;
 
-import lotto.domain.ErrorMessage;
-
 public class LottoCountsValidator {
     private static final int MIN_COUNT = 1;
     private static final int MAX_COUNT = 100;

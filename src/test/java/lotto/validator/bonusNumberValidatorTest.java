@@ -1,6 +1,6 @@
 package lotto.validator;
 
-import static lotto.validator.PurchaseValidator.validateAmount;
+//import static lotto.validator.PurchaseValidator.validateAmount;
 import static lotto.validator.BonusNumberValidator.validateNumber;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 

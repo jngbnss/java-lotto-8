@@ -1,7 +1,5 @@
 package lotto.validator;
 
-import lotto.domain.ErrorMessage;
-
 public class BonusNumberValidator {
 
     private static final int MIN_NUMBER = 1;

@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.validator.ErrorMessage;
+
 public class WinningLotto {
     // 당첨번호 저장 클래스
     private final Lotto winningNumbers;

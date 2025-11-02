@@ -3,7 +3,6 @@ package lotto.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import lotto.domain.ErrorMessage;
 
 public class LottoValidator {
     public static void validate(List<Integer> numbers) {

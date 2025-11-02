@@ -17,8 +17,8 @@ public class Controller {
             //1금액 입력
             inputView.intPurchaseAmount();
             String inputPrice = readLine();
-            Purchasement purchasement = new Purchasement(inputPrice);// 내부에서 검증
-            int count = purchasement.getValue() / 1000;
+            PurchaseAmount purchaseAmount = new PurchaseAmount(inputPrice);// 모델에서 검증
+            int count = purchaseAmount.getValue() / 1000;
 
             //2로또 랜덤 번호 생성
             outputView.showCount(count);
@@ -44,7 +44,7 @@ public class Controller {
             //결과 출력
 
             outputView.printStatics(result);
-            outputView.printProfitRate(result.calculateProfitRate(purchasement.getValue()));
+            outputView.printProfitRate(result.calculateProfitRate(purchaseAmount.getValue()));
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
