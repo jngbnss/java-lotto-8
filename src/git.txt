@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "refactor: 랜덤으로 생성된 로또 뷰에서 데이터 직접 처리를 컨트롤러에서 진행"
+git commit -m "docs: 체크리스트 추가"
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링
