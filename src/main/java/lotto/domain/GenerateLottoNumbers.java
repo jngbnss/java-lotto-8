@@ -24,7 +24,8 @@ public class GenerateLottoNumbers {
 
         List<Lotto> lottos = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            List<Integer> numbers = Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER, LOTTO_SIZE)
+            List<Integer> numbers = Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER,
+                            LOTTO_SIZE)
                     .stream()
                     .sorted()
                     .collect(Collectors.toList());

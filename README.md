@@ -8,13 +8,14 @@
 - PurchaseAmountValidator(변환 및 검증 진행) 공통 벨류
 - 테스트 완료
 - - [x] 검증,예외,mvc,test,logic
+- - [ ] there's nothing to do
 
 2 구매 가능한 로또 개수 계산
 - [ ] 다음 스텝
 - 로또 번호 랜덤 생성 (6개, 중복 없음, 1~45)
 - 구매한 로또 번호 출력
-- - [x] 공란
-- - [ ] 검증,예외,mvc,test,logic
+- - [x] (mvc,logic),(검증,예외,test)
+- - [ ] there's nothing to do
 
 3 당첨 번호 입력 (6개)
 - [ ] 다음 스텝
