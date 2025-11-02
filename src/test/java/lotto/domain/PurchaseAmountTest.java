@@ -20,15 +20,15 @@ class PurchaseAmountTest {
 
         assertThat(purchaseAmount.getValue()).isEqualTo(expected);
     }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "\t"})
-    @DisplayName("공백 또는 탭 입력 예외")
-    void 공백_입력_예외(String input) {
-        assertThatThrownBy(() -> new PurchaseAmount(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INPUT_NULL.getMessage());
-    }
+//     입력 공백은 인풋핸들러로 옮김
+//    @ParameterizedTest
+//    @ValueSource(strings = {"", " ", "\t"})
+//    @DisplayName("공백 또는 탭 입력 예외")
+//    void 공백_입력_예외(String input) {
+//        assertThatThrownBy(() -> new PurchaseAmount(input))
+//                .isInstanceOf(IllegalArgumentException.class)
+//                .hasMessage(ErrorMessage.INPUT_NULL.getMessage());
+//    }
 
     @Test
     @DisplayName("null 입력 예외")

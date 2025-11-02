@@ -49,9 +49,10 @@ public class OutputView {
     }
 
     // 총 수익률 출력
-    public void printProfitRate(double rate) {
-        System.out.println("총 수익률은 " + String.format("%.2f", rate) + "%입니다.");
+    public void printProfitRate(double profitRate) {
+        System.out.printf("총 수익률은 %.1f%%입니다.%n", profitRate); // 소수점 한 자리
     }
+
 
 
 }

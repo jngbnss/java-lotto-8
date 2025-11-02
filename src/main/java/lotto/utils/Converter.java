@@ -12,11 +12,10 @@ public class Converter {
                 .map(String::trim)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-
         return new Lotto(numbers); // ✅ Lotto 내부에서 자동 검증 수행
     }
 
-
+    // 타입만 검증
     public static int intConverter(String input) {
         return BonusNumberValidator.validateNumber(input); // 숫자 검증
 

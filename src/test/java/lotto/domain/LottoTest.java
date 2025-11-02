@@ -29,7 +29,6 @@ class LottoTest {
 
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
 
-    // 정상
     @Test
     @DisplayName("정상 로또 번호 입력 시 객체 생성")
     void 정상_로또_생성() {
@@ -43,10 +42,7 @@ class LottoTest {
     @MethodSource("provideValidLottoNumbers")
     @DisplayName("정상 로또 번호 입력 시 객체 생성")
     void 정상_로또_생성(List<Integer> numbers) {
-        // when
         Lotto lotto = new Lotto(numbers);
-
-        // then
         assertThat(lotto.getNumbers()).containsExactlyElementsOf(numbers);
     }
 
@@ -58,7 +54,6 @@ class LottoTest {
         );
     }
 
-    // 사이즈6이 아닐때
     @ParameterizedTest
     @MethodSource("provideInvalidSizeLottoNumbers")
     @DisplayName("로또 번호가 6개가 아닐때")
@@ -77,7 +72,6 @@ class LottoTest {
         );
     }
 
-    // 중복
     @ParameterizedTest
     @MethodSource("provideInvalidDuplicateLottoNumbers")
     @DisplayName("로또 번호 안에서 중복이 있을 때")
@@ -99,7 +93,6 @@ class LottoTest {
         );
     }
 
-    // 범위
     @Test
     @DisplayName("로또 번호가 1~45 범위를 벗어나면 예외 발생")
     void 로또_번호_범위_예외() {
@@ -127,7 +120,6 @@ class LottoTest {
         );
     }
 
-    // 오름차순
     @Test
     @DisplayName("로또 번호는 생성 시 오름차순 정렬")
     void 로또_번호_정렬() {
@@ -136,7 +128,6 @@ class LottoTest {
         Lotto lotto = new Lotto(numbers);
         assertThat(lotto.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
     }
-
 
     // 오름차순으로 만든 리스트가 로또로 가서 검증을 진행하기 때문에
     // 오름차순이 아닌 리스트가 들어가면 예외 발생
@@ -148,7 +139,6 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NOT_SORTED_LOTTO_NUMBER.getMessage());
     }
-
 
     @ParameterizedTest
     @MethodSource("provideNotSortedLottoNumbers")
