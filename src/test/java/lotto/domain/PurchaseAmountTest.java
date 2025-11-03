@@ -20,7 +20,9 @@ class PurchaseAmountTest {
 
         assertThat(purchaseAmount.getValue()).isEqualTo(expected);
     }
+
 //     입력 공백은 인풋핸들러로 옮김
+    // 수정했지만 테스트 코드를 통해서 미리 확인할 수 있게
 //    @ParameterizedTest
 //    @ValueSource(strings = {"", " ", "\t"})
 //    @DisplayName("공백 또는 탭 입력 예외")

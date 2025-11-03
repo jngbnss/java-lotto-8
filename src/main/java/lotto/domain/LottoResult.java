@@ -6,21 +6,9 @@ import java.util.Map;
 public class LottoResult {
     private final Map<Rank, Integer> results = new EnumMap<>(Rank.class);
 
-    public LottoResult(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
-
+    public LottoResult() {
         //초기화
         initializeResults();
-        //결과 확인
-        checkingNumbers(generateLottoNumbers, checker);
-    }
-
-    private void checkingNumbers(GenerateLottoNumbers generateLottoNumbers, LottoChecker checker) {
-        //결과 집계
-        for (Lotto userLotto : generateLottoNumbers.getRandomlyGeneratedLotteries()) {
-            Rank rank = checker.match(userLotto);
-            results.put(rank, results.get(rank) + 1);
-            //result에 저장
-        }
     }
 
     private void initializeResults() {
@@ -30,6 +18,10 @@ public class LottoResult {
         }
     }
 
+    // 당첨 결과 추가
+    public void addResult(Rank rank) {
+        results.put(rank, results.get(rank) + 1);
+    }
 
     public int getCount(Rank rank) {
         return results.get(rank);
@@ -37,8 +29,10 @@ public class LottoResult {
 
     public double calculateProfitRate(int purchaseAmount) {
         long totalPrize = results.entrySet().stream()
-                .mapToLong(e -> (long) e.getKey().getPrize() * e.getValue())
+                .mapToLong(e ->
+                        (long) e.getKey().getPrize() * e.getValue())
                 .sum();
+        // 현재 필드에 있는 키(FIRST)의 상금 * 현재 필드에 있는 벨류(당첨자 수)를 더하기
         return ((double) totalPrize / purchaseAmount) * 100;
     }
 

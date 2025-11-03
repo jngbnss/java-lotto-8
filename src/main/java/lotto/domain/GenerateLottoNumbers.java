@@ -20,6 +20,11 @@ public class GenerateLottoNumbers {
         this.randomlyGeneratedLotteries = generateLottos(count); // 랜덤 생성
     }
 
+    // 결과 서비스 테스트용 생성자
+    public GenerateLottoNumbers(List<Lotto> predefinedLotteries) {
+        this.randomlyGeneratedLotteries = predefinedLotteries;
+    }
+
     private List<Lotto> generateLottos(int count) {
 
         List<Lotto> lottos = new ArrayList<>();

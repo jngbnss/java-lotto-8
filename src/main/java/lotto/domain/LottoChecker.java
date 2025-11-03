@@ -1,21 +1,23 @@
 package lotto.domain;
 
 public class LottoChecker {
-    // 여기 정답을 담고있음
-    // 당첨번호 + 보너스 번호 보관 / 비교가능 제공
-    private final Lotto checkNumber;
+    private final Lotto winningNumber;
     private final int bonusNumber;
 
-    public LottoChecker(Lotto checkNumber, int bonusNumber) {
-        this.checkNumber = checkNumber;
+    public LottoChecker(Lotto winningNumber, int bonusNumber) {
+        // 당첨번호를 저장
+        this.winningNumber = winningNumber;
         this.bonusNumber = bonusNumber;
     }
 
-    public Rank match(Lotto userLotto){
-        int matchCount = (int) userLotto.getNumbers().stream()
-                .filter(checkNumber.getNumbers()::contains)
+    public Rank match(Lotto randomlyGeneratedNumber) {
+        // 랜덤으로 발행된 로또들을 당첨번호와 비교하면서 등수 계산
+        int matchCount = (int) randomlyGeneratedNumber.getNumbers().stream()
+                .filter(winningNumber.getNumbers()::contains)
                 .count();
-        boolean bonusMatch = userLotto.getNumbers().contains(bonusNumber);
-        return Rank.valueOf(matchCount,bonusMatch);
+        boolean bonusMatch = randomlyGeneratedNumber.getNumbers().contains(bonusNumber);
+
+        return Rank.valueOf(matchCount, bonusMatch);
+        //ex : if (matchCount == 5 && bonusMatch) → Rank.SECOND
     }
 }
