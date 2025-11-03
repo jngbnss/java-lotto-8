@@ -4,7 +4,7 @@ git remote add origin https://github.com/jngbnss/preCoursePractice.git
 git status
 
 git add .
-git commit -m "refactor: 당첨 결과, 서비스 생성, 테스트 완료"
+git commit -m "feat: 결과 dto 생성, view는 dto만 사용"
 git push origin jngbnss
 
 로또 번호 입력 예외 tdd 및 역할에 맞게 리팩토링

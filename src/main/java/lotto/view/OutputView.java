@@ -1,10 +1,8 @@
 package lotto.view;
 
-import lotto.domain.Lotto;
 import java.util.List;
-import lotto.domain.LottoResult;
-import lotto.domain.Rank;
-import lotto.domain.GenerateLottoNumbers;
+import lotto.domain.Lotto;
+import lotto.domain.LottoResultDto;
 
 public class OutputView {
 
@@ -18,8 +16,6 @@ public class OutputView {
         }
     }
 
-
-    // 구매한 로또 전체 출력
     public void printPurchasedLottos(List<Lotto> lottos) {
         System.out.println();
         System.out.println(lottos.size() + "개를 구매했습니다.");
@@ -28,31 +24,24 @@ public class OutputView {
         }
     }
 
-    public void printStatics(LottoResult lottoResult) {
+    // 등수별 통계 출력
+    public void printStatics(List<LottoResultDto> dtos) {
         System.out.println("\n당첨 통계\n---");
-        for (Rank rank : Rank.values()) {
-            if (rank == Rank.NONE || rank.getMatchCount() < 3) {
-                continue;
-            }
-
-            int count = lottoResult.getCount(rank);
+        for (LottoResultDto dto : dtos) {
             System.out.printf(
                     "%d개 일치%s (%s원) - %d개\n",
-                    rank.getMatchCount(),
-                    rank.isBonus() ? ", 보너스 볼 일치" : "",
-                    String.format("%,d", rank.getPrize()), // 천 단위 콤마 표시
-                    count
+                    dto.getMatchCount(),
+                    dto.isBonus() ? ", 보너스 볼 일치" : "",
+                    String.format("%,d", dto.getPrize()),
+                    dto.getCount()
             );
         }
-
-
     }
 
-    // 총 수익률 출력
-    public void printProfitRate(double profitRate) {
-        System.out.printf("총 수익률은 %.1f%%입니다.%n", profitRate); // 소수점 한 자리
+    // DTO에서 수익률 출력
+    public void printProfitRate(List<LottoResultDto> dtos) {
+        if (dtos.isEmpty()) return; // 안전하게 처리
+        double profitRate = dtos.get(0).getProfitRate(); // 모든 DTO에 동일한 값
+        System.out.printf("총 수익률은 %.1f%%입니다.%n", profitRate);
     }
-
-
-
 }

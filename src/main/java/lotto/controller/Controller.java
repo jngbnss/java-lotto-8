@@ -54,14 +54,19 @@ public class Controller {
             // 로또 체커에 당첨번호를 저장후
             // 로또 체커 메서드에서 랜덤으로 발행된 로또와 비교하여
             // 당첨 등수를 계산함
+            // 1. 로또 결과 계산
             LottoChecker lottoChecker =
                     new LottoChecker(winningLotto.getWinningNumbers(), winningLotto.getBonusNumber());
 
-            LottoResult result = resultService.calculateResult(randomlyGeneratedNumbers,lottoChecker);
-            //결과 출력
+            LottoResult result = resultService.calculateResult(randomlyGeneratedNumbers, lottoChecker);
 
-            outputView.printStatics(result);
-            outputView.printProfitRate(result.calculateProfitRate(purchaseAmount.getValue()));
+            // 2. DTO로 변환 (수익률 포함)
+            List<LottoResultDto> resultDtos = resultService.toDtoList(result, purchaseAmount.getValue());
+
+            // 3. 뷰에 출력
+            outputView.printStatics(resultDtos);                   // 등수별 통계 출력
+            outputView.printProfitRate(resultDtos); // 수익률 출력
+
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
