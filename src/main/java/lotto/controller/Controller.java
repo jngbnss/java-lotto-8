@@ -44,7 +44,8 @@ public class Controller {
             //보너스번호 입력
             inputView.inputBonusNumber();
             String inputBonusNumber = emptyCheck(readLine());
-            int bonusNumber = Converter.intConverter(inputBonusNumber);// 컨버터에서 int 타입으로 변경 및 숫자범위 검증 진행
+            int bonusNumber = Converter.intConverter(inputBonusNumber);
+            // 컨버터에서 int 타입으로 변경 및 숫자범위 검증 진행
 
             // WinningLotto 보너스 넘버 중복 "검증"
             WinningLotto winningLotto = new WinningLotto(winningNumber, bonusNumber);
@@ -54,6 +55,7 @@ public class Controller {
             // 로또 체커에 당첨번호를 저장후
             // 로또 체커 메서드에서 랜덤으로 발행된 로또와 비교하여
             // 당첨 등수를 계산함
+
             // 1. 로또 결과 계산
             LottoChecker lottoChecker =
                     new LottoChecker(winningLotto.getWinningNumbers(), winningLotto.getBonusNumber());
